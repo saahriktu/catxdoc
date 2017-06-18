@@ -1,0 +1,16 @@
+#!/bin/bash
+# Catxdoc v0.3
+# cat for .docx files by Kurashov Artem
+# This file is subject to the terms and conditions of the GNU General Public
+# License v3.
+if [ "$#" -lt 1 ]; then
+echo "usage: catxdoc path/file.docx"
+exit
+fi
+FTYPE=`file -b $1`
+if [ "$FTYPE" == "Zip archive data, at least v2.0 to extract" ]; then
+unzip -p "$1" word/document.xml | \
+sed 's/<[a-zA-Z0-9:/"=-?. ]*>//g;s/&lt;/</g;s/&gt;/>/g;s/&amp;/\&/g'
+exit
+fi
+echo "Strange or broken file..."

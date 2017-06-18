@@ -1,0 +1,7 @@
+Catxdoc v0.3
+
+Bash script for extract plain text (in UTF-8) from .docx files to stdout (in
+one line)
+
+License: GNU GPLv3
+Author: Kurashov Artem
